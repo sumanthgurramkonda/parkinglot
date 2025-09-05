@@ -36,7 +36,7 @@ public class ParkingManger {
         parkingLots.add(new ParkingLot(lotId,parkingLevels));
     }
 
-    public Optional<Ticket> reserveSlot(String lotId, Vehicle vehicle){
+    public synchronized Optional<Ticket> reserveSlot(String lotId, Vehicle vehicle){
         Ticket ticket = null;
         for(ParkingLot parkingLot : parkingLots) {
             ParkingSlot parkingSlot = parkingLot.reserveParkingSlot(vehicle);
